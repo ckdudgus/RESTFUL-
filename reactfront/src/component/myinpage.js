@@ -11,7 +11,7 @@ const Myinpage = (props) => {
     const interviewDataSetting = async () => {
 
         axios({
-            url: `/cyhpreinterview?botable=${props.botable}`,
+            url: `/cyhpreinterview?type=${props.type}`,
             method : "GET"
         })
                 .then(
@@ -32,10 +32,10 @@ const Myinpage = (props) => {
         return (  
             <div><h2>{ interviewId.length > 0 ? "사전인터뷰" : "데이터 전송 중" }</h2>
             {
-                interviewId.map(( content, i ) => {
+                interviewId.map(( datasql, i ) => {
                     return(
                         <li>
-                            <h3>{i+1} {content.cyh_subject}</h3><div>{content.cyh_content}</div>
+                            <h3>{i+1} {datasql.cyh_subject}</h3><div>{datasql.cyh_content}</div>
                         </li>
                     )
                 })

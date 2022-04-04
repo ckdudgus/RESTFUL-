@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="IntroduceSql">   
+    <select id="interview">
+        select
+            wr_id 
+            ,    cyh_subject
+            ,    cyh_content
+        from ys5328.g5_write_free
+    </select>
+
+     <insert id="interviewwrite">
+        insert into 
+            cyh_preinterview.cyh_interview_new(
+                cyh_subject
+                , cyh_content
+            )
+            values(
+                '제목자리'
+                , '내용자리'
+            );
+    </insert>
+
+    <!-- <update id = "interviewModify">
+
+    
+    </update> -->
+    
+   
+
+    <!-- <select id="contact">
+        select
+            *
+        from cyh_preinterview.cyh_contact_new
+    </select> -->
+
+   
+
+    <select id="meetingArrange">
+        select
+            *
+        from cyh_preinterview.cyh_meetingArrange_new
+    </select>
+    
+    <insert id="meetingArrangeInsert">
+        insert into 
+            cyh_preinterview.cyh_review_new(
+                cyh_subject
+                , cyh_content
+                <if text = " nameimgSrc != '' && nameimgSrc != null ">
+                , cyh_imgSrc
+                , cyh_imgidentity
+                <if>
+                , cyh_data
+            )
+            values(
+                '제목자리'
+                , '내용자리'
+                <if text = " nameimgSrc != '' && nameimgSrc != null ">
+                , #{nameimgSrc}
+                , #{nameimgidentity}
+                </if>
+                , '개발코드'
+            );
+    </insert>
+
+     <select id="portfolio">
+        select
+            key_id
+            ,    cyh_category 
+            ,    cyh_subject
+            ,    cyh_content
+            ,    cyh_imgSrc
+            ,    cyh_imgWidth
+            ,    cyh_imgHeight
+        from cyh_preinterview.cyh_portfolio_new 
+    </select>
+</mapper>
