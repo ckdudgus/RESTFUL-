@@ -12,7 +12,7 @@ const Myinpage = (props) => {
 
         axios({
             url: `/cyhpreinterview?type=${props.type}`,
-            method : "GET"
+            method : "POST"
         })
                 .then(
                     (result) => {  
